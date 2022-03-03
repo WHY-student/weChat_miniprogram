@@ -1,0 +1,116 @@
+<!--pages/personal/personal.wxml-->
+<view class='homeBG' style="display:flex;flex-direction:column;padding:5% 4%;padding-bottom: 6%;">
+  <view class='round-angle' style="flex:1;margin-bottom:4%;padding:0% 4%;padding-top:1%;position:relative;display:flex;flex-direction:column;height: 37%;">
+    <view style="display:flex;position: relative;height: 30%;padding-top:1%;">
+      <van-image
+        round
+        width="4rem"
+        height="4rem"
+        fit="cover"
+        src="{{avatar}}"
+        style="margin-right:4%;margin-top:-38rpx;"
+      />
+      <view style="align-self: center;">{{user_name}}</view>  
+    </view>
+    <view style="display:flex;flex-direction:column;flex: 1;padding-bottom: 3%;">
+      <view style="flex:1;text-align:center">
+            <view style="display:inline-block;margin:2%;margin-right:40rpx;">
+              <view style="display:inline-block;font-size:95rpx;">{{clockons.length}}</view>
+              <view style="display: inline-block;font-size:28rpx;">天</view>
+              <view style="font-size:28rpx;">累计打卡</view>              
+            </view>
+            <view style="display:inline-block;margin:2%;margin-right:40rpx;">
+              <view style="display:inline-block;font-size:95rpx;">{{max_length}}</view>
+              <view style="display: inline-block;font-size:28rpx;">天</view>
+              <view style="font-size:28rpx;">最长连续</view>              
+            </view>
+      </view>
+        <van-divider />     
+      <view style="display:flex;"> 
+        <view style="position:relative;margin-top:34rpx;font-size:28rpx;">
+          <view style="display: inline-block; margin-right: 20rpx;">每天背单词提醒</view>
+
+          <!--触发part-->
+          <view style="display: inline-block;" wx:if="{{ is_remind }}" bindtap="changeTime">
+            <view style="display: inline-block;">{{ remind_time }} </view>
+            <view style="display: inline-block;color: rgb(73,137,255);"><van-icon name="edit" /></view>               
+          </view>                              
+        </view>
+        <view style="margin-top:20rpx;flex:1;">
+        <van-switch size="38rpx" checked="{{ is_remind }}" bind:change="onChange" />
+        </view>
+      </view>
+    </view>    
+  </view>
+  <view class='round-angle' style="padding-bottom:1%">
+    <!--日历-->
+    <!--年月切换栏-->
+    <view style="display:flex;justify-content:space-between;margin-top:4%;">
+      <image src="{{url}}/pic/toL.png" style="width:56rpx;height:68rpx;margin-left:32rpx;" bindtap="toL"></image>
+      <view style="display:flex;flex-direction:column;">
+        <view style="font-size:38rpx;color:rgb(51,51,51);text-align:center;font-weight:700;">{{choosedDay.month}}月</view>
+        <view style="font-size:24rpx;color:rgb(187,187,187);text-align:center">{{choosedDay.year}}</view>
+      </view>
+      <image src="{{url}}/pic/toR.png" style="width:56rpx;height:68rpx;margin-right:32rpx;" bindtap="toR"></image>
+    </view>
+    <!--一周文字--> 
+    <view class="weekW">
+      <view wx:for="{{weekW}}" wx:key="index">{{item}}</view>
+    </view>
+
+    <!--日期部分-->
+
+    <view wx:for="{{days.length/7}}" wx:for-index="i" wx:key="i">
+      <view wx:for="{{days}}" wx:for-index="j" wx:key="j" wx:for-item="item">
+        <view wx:if="{{j/7==i}}" class="rowCal">
+          <view wx:for="{{7}}" wx:for-index="k" wx:key="k"
+            class="{{days[j+k].thisMonth?'choosedCell':'unchoosedCell'}} cellCal">
+            <view wx:if="{{days[j+k].isSign}}" >
+              <image src="{{url}}/pic/already.png" class="picBac"></image>
+              <view style="margin-top:-71rpx">{{days[j+k].date}}</view>
+            </view>
+            <view wx:else>{{days[j+k].date}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view style="text-align: center; margin: 20rpx;font-size: 20rpx;color: rgb(187,187,187);">背单词，贵在坚持记得每日打卡哦！  </view>
+    <view style="text-align: center;">
+      <van-button round type="info" bindtap="clockin" wx:if="{{!today.isSign}}">点我打卡</van-button>
+      <van-button round type="info" bindtap="share" wx:else>去分享</van-button>
+    </view>
+  </view>
+</view>
+<!--
+<van-popup show="{{ show }}" bind:close="onClose">
+  <view style="width:400rpx;height:600rpx">
+    <van-datetime-picker
+      type="time"
+      value="{{ remind_time }}"
+      bind:confirm="confirm"
+      bind:cancel="cancel"
+    />    
+  </view>  
+</van-popup>
+-->
+
+
+<!--设置时间弹出层-->
+<van-overlay show="{{ show }}" >
+  <view class="popBg">
+    <image src="pic/icon.png" style="width:189rpx;height:128rpx;margin-top:-79rpx;"/>
+    <view style="font-size:32rpx;color:rgb(19,31,45);margin-top:26rpx;font-weight:600">设置背单词提醒</view>
+    <view style="font-size:28rpx;color:rgb(153,153,153);margin-top:13rpx;">除了背单词提醒，我们不会打扰你</view>
+    <view class="pickerBg" >
+      <view style="margin-left:123rpx;" class="pickerFont">时间：</view>
+      <van-picker columns="{{hourList}}" custom-class="pickerSty" default-index="{{ hour }}" visible-item-count="2" item-height="22" bind:change="hourChange"/>
+      <view class="pickerFont">点</view>
+      <van-picker columns="{{minList}}"  custom-class="pickerSty" default-index="{{ min }}" visible-item-count="2" item-height="22" bind:change="minChange"/>
+      <view class="pickerFont">分</view>
+    </view>
+    <view style="display:flex;margin-top:54rpx;">
+      <view class="cancleBtr" bindtap="cancel">取消</view>
+      <view class="confirmBtr" bindtap="confirm">确定</view>
+    </view>
+   </view>
+</van-overlay>>

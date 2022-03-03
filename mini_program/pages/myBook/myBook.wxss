@@ -1,0 +1,49 @@
+/* pages/myBook/myBook.wxss */
+.topBor{
+  height:122rpx;
+  box-shadow: 0px 10rpx 10rpx rgba(182, 182, 182, 0.31);
+  border-radius: 8px;
+}
+.topBtr{
+  margin-top: 32rpx;
+  width:686rpx;
+  height:90rpx;
+  background-color: rgb(73,137,255,0.1);
+  font-size: 34rpx;
+  color:rgb(73,137,255);
+  text-align: center;
+  border-Radius: 23px;
+}
+
+.bookPar1{
+  font-size:32rpx;
+  color:rgb(51,51,51);
+  flex:1;
+}
+.bookPar2{
+  font-size:24rpx;
+  color:rgb(153,153,153);
+}
+.flashBtr{
+  background-color: rgb(73,137,255,0.1);
+  color:rgb(73,137,255);
+  font-size: 28rpx;
+  width:157rpx;
+  height:40rpx;
+  text-align: center;
+  border-Radius: 10px;
+
+}
+
+.bookPar{
+  margin-left:24rpx;
+}
+.dePart{
+  width:80px;
+  height:273rpx;
+  background-color: rgb(255,96,96);
+  color:white;
+  font-size:28rpx;
+  text-align: center;
+  padding-top: 100rpx;
+}

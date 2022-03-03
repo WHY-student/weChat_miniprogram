@@ -1,0 +1,62 @@
+/* pages/myPlan/myPlan.wxss */
+page{
+  background: -webkit-linear-gradient(right,#4989ff,rgb(88,161,255));
+}
+.bac{
+  width: 100%;
+  height:100%;
+  margin-top: 2%;
+  background-color: white;
+  border-Radius: 15px;
+  box-shadow: 0 2px 1rpx #5882f0;
+
+}
+.bookPart{
+  display:flex;
+  height:247rpx;
+  border-bottom-style: solid;
+  border-bottom-Width: 1rpx;
+	border-bottom-Color: rgb(238,238,238);
+}
+.pic{
+  width:160rpx;
+  height: 240rpx;
+  margin-top:-24rpx;
+  border-radius: 8px;
+  margin-left: 29rpx;
+}
+.bookPar1{
+  font-size:32rpx;
+  color:rgb(51,51,51);
+  width:420rpx;
+  margin-bottom: 16rpx;
+  margin-top: 24rpx;
+
+}
+.bookPar2{
+  font-size:24rpx;
+  color:rgb(153,153,153);
+}
+
+.bookPar{
+  margin-left: 24rpx;
+}
+.pickerSty{
+  height:100%;
+  width:71rpx;
+}
+
+.btr{
+  width: 362rpx;
+	height: 90rpx;
+  border-Radius: 46rpx;
+  background: linear-gradient(to right,rgb(73,137,255),rgb(73,156,255));
+  font-size: 34rpx;
+  color:white;
+  margin-top: 40rpx;
+  margin-bottom: 40rpx;
+}
+
+/* .van-picker__columns{
+  height: 100% !important;
+} */

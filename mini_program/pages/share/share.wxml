@@ -1,0 +1,65 @@
+<!--pages/share/share.wxml-->
+<!--海报部分-->
+<view class="poster">
+  <!--背景图片-->
+  <image src="pic/bac.png" class="backImage" />
+  <!--打卡内容-->
+  <view style="z-index:1;position:absolute">
+    <!--上半部分-->
+    <image src="pic/before.png" style="width:45rpx;height:45rpx;margin-left:15rpx" />
+    <view style="margin-left:15rpx;margin-bottom:26rpx;display:flex;align-items:center;">
+      <view><image src="{{head}}" style="width:120rpx;height:120rpx;" /></view>
+      <view style="font-size:25rpx;color:white">我正在小睿背单词</view>
+    </view>
+    <view style="width:365rpx;font-size:42rpx;color:white;margin-left:30rpx">{{sentence}}</view>
+    <view style="margin-top:23rpx;font-size:25rpx;color:white;margin-left:30rpx;">
+      <view>{{example.eng}}</view>
+      <view>{{example.chi}}</view>
+    </view>
+    <image src="pic/after.png" style="width:45rpx;height:45rpx;margin-left:400rpx;" />
+
+    <!--下半部分-->
+
+    <view style="font-size:22rpx;color:rgba(255,255,255,0.5);margin-top:180rpx;margin-left:30rpx;">
+      <image src="pic/date.png" style="height:25rpx;width:25rpx;margin-right:10rpx"/>
+      <text>{{week[date.week]}} {{week[date.month]}} {{date.day}}</text>
+    </view>
+    <view style="display:flex;margin-left:30rpx;margin-top:-10rpx">
+      <view style="display:flex;flex-direction:column;margin-right:50rpx;width:80rpx;">
+        <view class="num">{{today_learn}}</view>
+        <view class="botWord">今日背词</view>
+      </view>
+
+      <view style="display:flex;flex-direction:column;margin-right:70rpx">
+        <view class="num">{{clockin_amount}}</view>
+        <view class="botWord">坚持天数</view>
+      </view>
+
+      <view style="display:flex;flex-direction:column;">
+        <view>
+          <image src="{{wxSym}}" style="height:120rpx;width:120rpx"/>
+        </view>
+        <view style="color:rgba(255,255,255,0.4);font-size:16rpx;width:120rpx;">长按并识别二维码和我一起背单词吧</view>
+      </view>
+    </view>
+  </view>
+  
+</view>
+
+<!--文字部分-->
+<view class="sentence">- 分享给朋友见证你的努力，加油! -</view>
+<!--底部操作部分-->
+<view style="display:flex;\margin-top:32rpx;">
+  <view style="display:flex;flex-direction:column;align-items:center;margin-left:180rpx;">
+    <button data-name="shareBtn" open-type="share" style="height:80rpx;width:90rpx;opacity:0">
+    </button>    
+    <view open-type="share" style="margin-top:-82rpx;"><image src="pic/share.png" style="height:80rpx;width:90rpx;"/></view>
+    <view class="sentence">分享给好友</view>      
+  </view>
+  <view style="display:flex;flex-direction:column;align-items:center;margin-left:130rpx;">
+    <view bindtap="saveImg"><image src="pic/save.png" style="height:80rpx;width:90rpx"/></view>
+    <view class="sentence">仅保存海报</view>
+  </view>
+</view>
+
+<!-- <button class='openSetting' open-type="openSetting" bindopensetting='handleSetting' hidden='{{openSettingBtnHidden}}'>授权</button> -->

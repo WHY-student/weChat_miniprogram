@@ -1,0 +1,63 @@
+<!--pages/chooseBook/chooseBook.wxml-->
+<view class="title">请选择一本词书</view>
+<!--导航栏-->
+<view class="nav" style="display:flex;">
+  <view class="column_list" wx:for="{{navList}}">
+    <view class="{{index==choosed?'choosed':'unchoosed'}} choose" bindtap="chooseLevel" data-level="{{index}}">{{item.level}}</view>
+    <image hidden="{{index!=choosed}}" src="{{url}}/pic/navBar.png" class="chooseBar"></image>
+  </view>
+</view>
+<!--副导航栏-->
+<view class="navBar">
+  <block wx:for="{{navList[choosed].category}}">
+    <button class="{{index==nextBarChoosed?'cBut':'uBut'}} but" bindtap="chooseCategory"
+      data-category="{{index}}">{{item}}</button>
+  </block>
+</view>
+<!--词书部分-->
+<view class="column_list">
+  <view class="book"  wx:for="{{currentBookList}}" bindtap="chooseBook" data-book_id="{{item.book_id}}"> 
+      <image src="{{item.book_cover}}" class=book_cover" />
+      <view class="book_info">
+        <view class="bookPar1 bookPar">{{item.book_name}}</view>
+        <view class="bookPar2 bookPar">{{item.words}}词汇</view>
+        <!-- <view style="display:flex;"class="bookPar2 bookPar">
+          <image src="{{url}}/pic/heads.png" style="width:68rpx;height:30rpx;"></image>
+          <view >{{item.people}}人正在背</view>
+        </view> -->
+      </view>
+  </view>
+</view>
+<van-dialog id="van-dialog" wx:if="{{selectComfirm}}"/>
+<van-overlay show="{{selectComfirm}}">
+  <view class="select_page">
+    <view class="page_list">
+      <view class="round-angle select_book_cover_bg">
+      </view>
+      <image src="{{showBook.book_cover}}" class="select_book_cover_img" />
+      <view style="position: relative;flex: 1;padding: 10rpx 0; font-size: 35rpx;">
+        {{showBook.book_name}}
+      </view>
+      <view style="flex: 1;color: rgb(153,153,153);  font-size: 25rpx;">{{showBook.words}}个单词</view>  
+      <van-icon name="close" style="float: right; position: absolute;  top: 100rpx; right: 5%; color: white; font-size: 45rpx;" bindtap="close"/>    
+      <van-divider style="flex:1"/>
+      <view style="flex:10;display:flex;flex-direction:column">
+        <view class="p-flex">
+        
+          <view class="c-title"><text class="dot">·</text > 科学有效<text class="dot">·</text ></view>
+          <view>基于艾宾浩斯记忆曲线和心流理论,</view>
+          <view>每天新词+旧词，循环记忆</view>        
+        </view>
+        <view class="p-flex">
+          <view class="c-title"><text class="dot">·</text >同步学习<text class="dot">·</text ></view>
+          <view>按单元顺序背，方便同步进度</view>        
+        </view>
+        <view class="p-flex">
+          <view class="c-title"><text class="dot">·</text >打卡计划<text class="dot">·</text ></view>
+          <view>目标式学习，花样打卡，助你战胜拖延</view>
+        </view>
+      </view>
+      <van-button round type="info" class="add_button" bindtap="addToBook" data-book_id="{{showBook.book_id}}">添加到我的词书</van-button>            
+    </view>
+  </view>
+</van-overlay>

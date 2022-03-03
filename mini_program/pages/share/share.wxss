@@ -1,0 +1,32 @@
+/* pages/share/share.wxss */
+.sentence{
+  color:rgb(51,51,51);
+  font-size: 28rpx;
+  text-align: center;
+  margin-top: 4rpx;
+}
+.poster{
+  width:460rpx;
+  height:870rpx;
+  margin-top: 36rpx;
+  margin-left: 145rpx;
+  margin-bottom: 50rpx;
+  position: relative;
+}
+.backImage{
+  width:460rpx;
+  height:870rpx;
+  position: absolute;
+  border-Radius: 15px;
+}
+.botWord{
+  color:rgba(255,255,255,0.6);
+  font-size: 22rpx;
+  margin-top: -10rpx;
+  width:90rpx;
+}
+.num{
+  font-size: 110rpx;
+  color:white;
+  text-align: center;
+}

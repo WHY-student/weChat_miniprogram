@@ -1,0 +1,33 @@
+<!--pages/wordExplanation/wordExplanation.wxml-->
+<view  style="display:flex;flex-direction:column;">
+  <!--单词-->
+  <view class="word">{{wordText}}</view>
+
+  <!--音标-->
+  <view style="display:flex;flex-direction:row;align-self:center">
+    <image src="{{url}}/pic/voice_copy.png" style="width:14px;height:16px;;margin-top:2px;margin-right:5px;" bindtap="">
+    </image>
+    <view class="word_sym">{{pronunciation}}</view>
+  </view>
+</view>
+<image src="{{url}}/pic/exp.png" class="picture"></image>
+<view class="tag">释义</view>
+<view class="mean">
+  {{type}}.{{meaning}}
+</view>
+<view class="tag">例句</view>
+<view class="mean" wx:for="{{sentence}}" style="display:flex;flex-direction:row">
+  <view >{{index+1}}.</view>
+  <view style="display:flex;flex-direction:column;margin-right:5px;width:533rpx; ">
+    <view>{{item.examples[0]}}</view>
+    <view>{{item.examples[1]}}</view>
+  </view>
+  <image src="{{url}}/pic/voice.png" style="width:55rpx;height:55rpx;margin-left:59rpx;"></image>
+</view>
+<view style="display:flex;flex-direction:row;margin-bottom:30rpx;margin-top:103rpx;">
+  <button  class="But" bindtap="changeTo">
+    <text wx:if="{{wordState==0}}" >{{displayState}}</text>
+    <text wx:else >{{displayState}}</text>
+  </button>
+  <image src="{{url}}/pic/nextW.png" style="width:383rpx;height:90rpx;margin-left:32rpx;" bindtap="nextWord"/>
+</view>

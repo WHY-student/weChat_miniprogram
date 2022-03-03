@@ -1,0 +1,100 @@
+/* pages/clockIn/clockIn.wxss */
+.topc {
+  background-color: #58a1ff;
+  width: 800rpx;
+  height: 400rpx;
+  border-radius: 200px / 50px;
+  margin-left: -15px;
+  margin-top: -200rpx;
+}
+
+.topBox {
+  margin-left: 32rpx;
+  margin-right: 32rpx;
+  margin-top: -162rpx;
+  width: 686rpx;
+  height: 220rpx;
+  border-Radius: 15px;
+
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0 0 20rpx rgba(182, 182, 182, 0.31);
+}
+
+.textAppraise {
+  font-size: 60rpx;
+  margin-top: 10rpx;
+}
+
+.textComment {
+  font-size: 34rpx;
+  text-align: center;
+  margin-top: 46rpx;
+  margin-bottom: 32rpx;
+  color: rgb(51, 51, 51);
+}
+
+.icon {
+  width: 189rpx;
+  height: 128rpx;
+  margin-top: -40rpx;
+  margin-left: 28rpx;
+  align-self: flex-start;
+  margin-right: 25rpx;
+}
+
+.but1 {
+  width: 214rpx;
+  height: 90rpx;
+  margin-left: 32rpx;
+  font-size: 34rpx;
+  color: rgb(73, 137, 255);
+  background-color: "#4989ff";
+  border-Radius: 25px;
+}
+
+.but2 {
+  width: 400rpx;
+  height: 90rpx;
+  margin-left: 32rpx;
+  background: linear-gradient(to right,rgb(73,137,255),rgb(73,156,255));
+  border-radius: 25px;
+  font-size: 34rpx;
+  color:white;
+}
+.weekW{
+  display:flex;
+  justify-content:space-between;
+  margin-top:42rpx;
+  margin-left:40rpx;
+  margin-right:40rpx;
+  font-size: 34rpx;
+  color:rgb(187,187,187);
+  margin-bottom: 41rpx;
+
+}
+.rowCal{
+  
+  margin-top:36rpx;
+  display:flex;
+  font-size:34rpx;
+  text-align: center;
+}
+.cellCal{
+  width:14%;
+  height: 48rpx;
+  margin-left: 1%;
+}
+.choosedCell{
+  color:rgb(102,102,102);
+}
+.unchoosedCell{
+  color:rgb(221,221,221);
+}
+
+.picBac{
+  margin-top: -15rpx;
+  position:relative;
+  width:76rpx;
+  height:74rpx;
+}
+

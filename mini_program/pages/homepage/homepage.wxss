@@ -1,0 +1,140 @@
+/* pages/homepage/homepage.wxss */
+.body{
+  position: absolute;
+  top: 10%;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  padding: 0 4%;
+}
+.van-image image{
+  border-radius: 8pt;
+  border: 1px solid white;
+}
+.smallwrd{
+  color: #c1c1c9;
+  font-size: 22rpx;
+}
+.bigwrd{
+  font-weight: bold;
+}
+.bg{
+  background-image:url('./img/bottom_logo.png');
+  background-repeat: no-repeat;
+  background-size:30%;background-position-x: right; background-position-y: 64rpx;
+}
+.avatar .van-image{
+  transform: translate(0, -50%);
+  position: relative;
+  top: 50%;
+}
+.avatar image{
+  width: 120rpx;
+  height: 120rpx;
+}
+
+.body_flex{
+  display: flex;
+  flex-direction: column;
+}
+
+.personal{
+  display: flex;
+  color: white;
+  margin-bottom: 6%;
+  flex: 1;
+  position: relative;
+  top: -1%;
+}
+
+.personal_title{
+  margin-left: 20rpx;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  flex: 5;
+}
+
+.background{
+  margin-bottom: 4%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  flex: 3;
+}
+
+.book{
+  display: flex;
+  position: relative;
+  top: -32rpx;
+}
+
+.book_name{
+  position: relative;
+  top: 25%;
+  font-size: 28rpx;
+  font-weight: bold;
+}
+
+.word_list{
+  position: absolute;
+  bottom: 8%;
+  font-size: 24rpx;
+  height:40rpx;
+  color:#c1c1c9
+}
+
+.change_book{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 134rpx;
+  height: 50rpx;
+}
+
+.study_info{
+  display: flex;
+  width: 623rpx;
+  padding: 1.3% 4%;
+  font-size: 28rpx;
+  justify-content: space-between;
+  color:#c1c1c9
+}
+
+.wrong_words{
+  height: 100%;
+  width: 48%;
+  float: left;
+  background-repeat: no-repeat;
+  background-size: 30%;
+  background-position-x: right;
+  background-position-y: 64rpx; 
+}
+
+.collection{
+  height: 100%;
+  width: 48%;
+  float: right;
+  background-repeat: no-repeat;
+  background-size: 30%;
+  background-position-x: right;
+  background-position-y: 64rpx;
+}
+
+.contact{
+  height: 184rpx;
+  margin-top: 20rpx;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position-y: 100%;
+}
+
+.contact_button{
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 10%;
+  opacity: 0;
+}

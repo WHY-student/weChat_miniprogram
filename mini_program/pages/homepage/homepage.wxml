@@ -1,0 +1,91 @@
+<!--pages/homepage/homepage.wxml-->
+<view class="homeBG">
+  <view class ="body body_flex">
+    <image src="{{vip_img}}" bindtap='vip' style="height:50rpx;width:50rpx;position:absolute;left:100rpx;top:140rpx;z-index:100"/>     
+    <view class="personal" bindtap="toPersonal">
+      <van-image
+        round
+        fit="cover"
+        src="{{avatar}}"
+        class="avatar"
+      />  
+      <view class="personal_title">
+        <view style="font-size: 50rpx;margin-bottom: 10rpx;">Hi~,{{user_name}}</view> 
+        <view style="font-size: 24rpx;">今天是你学习的第{{days}}天，累计学习了{{words}}个单词</view>
+      </view>
+      <van-icon name="arrow" style="margin-right:0rpx;"/>
+    </view>
+
+    <!--白色打底部分-->
+
+    <view class='round-angle background'>
+      <view class='book'>
+        <van-image
+          width="120rpx"
+          height="180rpx"
+          fit="cover"
+          src="{{book_cover}}"
+          style="margin-left:4%;"
+        />   
+        <view style="margin-left: 24rpx;">
+          <view class="book_name">{{book_name}}</view>
+          <view class="word_list" bindtap='toWordsList'>
+            <image src="{{url}}/img/word_logo.png" style="height:40rpx;width:40rpx;display:inline-block"></image>
+            <view style="display:inline-block;transform: translate(0, -6rpx);">单词表</view>                      
+          </view>
+        </view>
+        <view class="change_book" bindtap="toChooseBook">
+          <image src="{{url}}/img/change_book.png" style="height:100%;width:100%"/>
+        </view>
+      </view>
+      <view style="flex:0.3;font-size:24rpx">今日待学</view>
+      <view style="flex:4;font-size:150rpx;line-height:1;">{{to_learn}}</view>
+      <view style="flex:0.3;font-size:28rpx;margin-bottom: 33rpx;" wx:if="{{to_learn==0}}">恭喜你,完成今日任务!</view>
+      <view style="flex:0.3;font-size:28rpx;margin-bottom: 33rpx;" wx:else>还要继续加油哦!</view>      
+      <view class="study_info">
+        <view>已学习 <text style="color:#58a1ff">{{learned}}</text>/{{total}}</view>
+        <view>剩余<text style="color:#58a1ff">{{left_days}}</text>天</view>
+        <view bindtap="toSetPlan"> 
+          <image src="{{url}}/img/plan.png" style="height:40rpx;width:40rpx;vertical-align: middle;"></image>
+          <text>调整计划</text>
+        </view>
+      </view>
+      <view style="padding: 0 4%;flex:1;"> 
+        <van-progress percentage="{{learned/total*100}}"  stroke-width="8" show-pivot="{{false}}" style="width:100%;"/>        
+      </view>
+      <view style="padding: 2% 4%;flex:2; display:flex;">   
+        <view style="flex:1;padding:1%;">
+          <van-button round type="info" bindtap='toStart' color='rgb(255,211,0)' data-type="3" data-path="/getWords" >
+          开始复习
+          </van-button>  
+        </view>
+        <view style="flex:1;padding:1%">
+          <van-button round type="info"  bindtap='toStart' data-type="1" data-path="{{to_learn!=0?'/getWords':'/continue'}}">
+          <view wx:if="{{to_learn!=0}}">开始学习</view>
+          <view wx:else>继续学习</view>
+          </van-button>        
+        </view>      
+      </view>
+    </view>
+
+    <!--错词和收藏夹部分-->
+    <view style="height:150rpx;" >
+      <view class='round-angle wrong_words' bindtap="toWrongCollection" style="  background-image: url('{{url}}/img/wrongBook.png');">
+        <view style="margin: 20rpx;">
+          <view class="bigwrd">错词本</view>
+          <view class="smallwrd">错词巩固，针对提升</view>        
+        </view>
+      </view>
+      <view  class='round-angle collection' bindtap="toCollection" style="background-image:url('{{url}}/img/collection.png');">
+        <view style="margin: 20rpx;">
+          <view class="bigwrd">收藏夹</view>
+          <view class="smallwrd">重点难点，着重强化</view>        
+        </view>
+      </view>
+    </view>
+    <view class="contact" style="background-image:url('{{url}}/img/bottom_logo.png');">
+    </view>
+    <button open-type="contact" class="contact_button"></button>    
+  </view>  
+</view>
+

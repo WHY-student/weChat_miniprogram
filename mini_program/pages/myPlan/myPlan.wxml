@@ -1,0 +1,29 @@
+<!--pages/myPlan/myPlan.wxml-->
+<view class="homeBG" style="padding: 10% 5%;">
+  <view class="bac" style="display:flex;flex-direction: column;">
+    <!--当前选中词书信息-->
+    <view class="bookPart">
+      <image src="{{book_cover}}" class="pic" />
+      <view style="display:flex;flex-direction:column;">
+        <view class="bookPar1 bookPar">{{book_name}}</view>
+        <view class="bookPar2 bookPar">{{total}}词汇</view>
+      </view>
+    </view>
+    <!--修改计划部分-->
+    <!--文字部分-->
+    <view style="display:flex;margin-top:36rpx;margin-bottom:23rpx;font-size:32rpx;color:#333333;">
+      <view style="margin-left:155rpx;margin-right:120rpx;">每天学习</view>
+      <view>每天复习</view>
+    </view>
+    <!--选择部分-->
+    <view id="select" style="display:flex;margin-bottom:22rpx;flex: 1;">
+      <van-picker columns="{{learnNum}}"  bind:change="LCli" custom-class="pickerSty" visible-item-count="{{words_number}}" style="margin-left:25%;" default-index="{{defeat_learn_index}}"/>
+      <van-picker columns="{{reviewNum}}"  bind:change="RCli" custom-class="pickerSty" visible-item-count="{{words_number}}" style="margin-left:25%;" default-index="{{defeat_review_index}}"/>
+    </view>
+    <view style="font-size:28rpx;color:#666666;text-align:center;">
+      每天预计花费<text style="color:rgb(73,137,255)"> {{minutes}} </text>分钟，
+      预计总花费<text style="color:rgb(73,137,255)"> {{days}} </text>天学完本书
+    </view>
+    <button class="btr" bindtap="saveBtr">保存计划</button>
+  </view>
+</view>

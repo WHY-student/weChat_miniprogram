@@ -1,0 +1,111 @@
+/* pages/personal/personal.wxss */
+.weekW{
+  display:flex;
+  justify-content:space-between;
+  margin: 5%;
+  margin-top: 1%;
+  font-size: 34rpx;
+  color:rgb(187,187,187);
+  margin-bottom: 3%;
+}
+.rowCal{
+  margin-top:3%;
+  display:flex;
+  font-size:34rpx;
+  text-align: center;
+}
+.cellCal{
+  width:14%;
+  height: 48rpx;
+  margin-left: 1%;
+}
+.choosedCell{
+  color:rgb(102,102,102);
+}
+.unchoosedCell{
+  color:rgb(221,221,221);
+}
+
+.picBac{
+  margin-top: -15rpx;
+  position:relative;
+  width:76rpx;
+  height:74rpx;
+}
+.van-divider{
+  margin: 0 !important;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+.van-button{
+  width: 50%;
+  margin-bottom: 1% !important;
+}
+
+.van-switch{
+  float: right;
+  margin-top: 11rpx;
+  /* height: 60% !important; */
+}
+/* .van-switch__node{
+  height: 100% !important;
+} */
+
+
+.popBg{
+  margin:295rpx 60rpx;
+  background-color: white;
+  width:630rpx;
+  height:489rpx;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-Radius: 15px;
+}
+.pickerSty{
+  height:120rpx;
+  width:88rpx;
+  margin-left: 10rpx;
+  margin-right: 10rpx;
+
+}
+.pickerBg{
+  display:flex;
+  align-self:flex-start;
+  height:120rpx;
+  margin-top: 51rpx;
+  margin-right: 40rpx;
+
+}
+.pickerFont{
+  margin-top:40rpx;
+  font-size:28rpx;
+  color:rgb(153,153,153);
+}
+.cancleBtr{
+  width: 262rpx;
+	height: 70rpx;
+	border-radius: 23px;
+  background-color: rgb(73,137,255,0.1);
+  flex:1;
+  color:rgb(73,137,255);
+  padding-top:20rpx;
+  font-size: 34rpx;
+}
+.confirmBtr{
+  width: 262rpx;
+	height: 70rpx;
+	border-radius: 23px;
+  background-color: rgb(73,137,255);
+  flex:1;
+  margin-left:26rpx;
+  color:white;
+  padding-top:20rpx;
+  font-size: 34rpx;
+
+}
+
+

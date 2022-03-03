@@ -1,0 +1,77 @@
+<!--pages/wordtest/wordtest.wxml-->
+<view wx:if="{{!explanation}}" class="progress_bar">
+  <audio src="{{right_or_wrong}}" action="{{audioAction_3}}"></audio>
+  <van-icon name="like"  wx:if="{{right_word.is_in_collection}}" data-word_id="{{right_word.word_id}}" bindtap="collection"  class='heart'/>
+  <van-icon name="like-o" wx:else data-word_id="{{right_word.word_id}}" bindtap="collection" class='heart' />    
+  <view style="margin-bottom: 5%;">
+    <van-progress class="doing" percentage="{{learned/total*100}}"  stroke-width="8" show-pivot="{{false}}" style="display: inline-block; width: 85%;"/>
+    <view style="color: white; display: inline-block; width: 15%;text-align: right;">{{learned}}/{{total}}</view>
+  </view>    
+  <view class="word_card">
+    <view style="flex:2;margin-bottom: 5%;">
+      <view class="word">{{right_word.writing}}</view>
+      <!--单词-->
+      <view style="text-align:center">
+        <image src="{{url}}/pic/voice_copy.png" style="width:14px;height:16px;;margin-top:2px;margin-right:5px;display:inline-block" bindtap="" bindtap="playAudio_1">
+        </image>
+        <audio src="{{src}}" action="{{audioAction_1}}"></audio>
+        <view class="word_sym">{{right_word.symbol}}</view>
+        <!--音标-->
+      </view>    
+    </view>
+    <view style="flex: 7; display: flex; flex-direction: column;">
+        <button class="answer_usual" wx:for="{{choices}}" style="background-color:{{item.afterChoose?(item.type?colors[1]:colors[2]):colors[0]}};color:{{item.afterChoose?'white':'black'}}"  
+        data-index="{{index}}" bindtap="choose">
+          <view class="word_text">{{item.explanation}}</view>          
+          <image wx:if="{{item.afterChoose}}" src="{{item.type?(url+imgs[0]):(url+imgs[1])}}" class="logo" >
+          </image>
+        </button>
+    </view> 
+  </view>
+</view>
+<view wx:else class="progress_bar" style="background: white;">
+<!--pages/wordExplanation/wordExplanation.wxml-->
+<view  style="display:flex;flex-direction:column;flex: 2.4;">
+  <!--单词-->
+  <view style="margin-bottom: 5%;">
+    <van-progress class="afterDiong" percentage="{{learned/total*100}}"  stroke-width="8" show-pivot="{{false}}" style="display: inline-block; width: 85%;"/>
+    <view style="color: black; display: inline-block; width: 15%;text-align: right;">{{learned}}/{{total}}</view>
+  </view>     
+  <view class="word">{{right_word.writing}}</view>
+  <!--音标-->
+  <view style="display:flex;flex-direction:row;align-self:center">
+    <image src="{{url}}/pic/voice_copy.png" style="width:14px;height:16px;margin-top:2px;margin-right:5px;" bindtap="playAudio_2">
+    </image>
+    <audio src="{{src}}" action="{{audioAction_2}}"></audio>
+    <view class="word_sym">{{right_word.symbol}}</view>
+  </view>
+</view>
+<image src="{{url}}/pic/exp.png" class="picture" style="width:100%;flex: 3;"></image>
+<view class="tag" style="flex: 1;">释义</view>
+<view class="mean" style="flex: 1;">
+  {{right_word.explanation}}
+</view>
+<view class="tag" style="flex: 1;">例句</view>
+<view class="mean" wx:for="{{right_word.examples}}" style="display:flex;flex-direction:row;flex:2">
+  <view >{{index+1}}.</view>
+  <view style="display:flex;flex-direction:column;width:533rpx; ">
+    <view>{{right_word.examples[index][0]}}</view>
+    <view>
+      {{right_word.examples[index][1]}}
+    </view>
+  </view>
+  <image src="{{url}}/pic/voice.png" style="width:55rpx;height:55rpx;margin-left:59rpx;"></image>
+</view>
+<view style="flex:1;display:flex">
+  <button  class="But1" bindtap="addOrRemove">
+    <text wx:if="{{!right_word.is_in_wrongwords}}" >加入错词本</text>    
+    <text wx:else >已加入错词本</text>
+  </button>
+  <button  class="But2" bindtap="nextWord" >
+    <text>下一个</text>
+  </button>  
+</view>  
+</view>
+<view class="full_screen" wx:if="{{mask}}"></view>
+
+

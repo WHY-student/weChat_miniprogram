@@ -1,0 +1,48 @@
+<!--pages/wrongSet/wrongSet.wxml-->
+<!--顶部-->
+<van-tabs active="{{type}}" color="rgb(73,137,255)"  bind:change="onChange">
+  <van-tab title="已学单词"></van-tab>
+  <van-tab title="未学单词"></van-tab>
+</van-tabs>
+<view class="topBlo">
+  <view style="margin-bottom:28rpx">共{{total}}个错词</view>
+  <view style="display:flex;margin-bottom:28rpx">
+    <view style="margin-right:10px;" >释义遮挡</view>
+    <switch  style="zoom:0.5" data-switch="{{switch}}" bindchange="switchCli"></switch>
+  </view>
+</view>
+<!--错词显示-->
+<scroll-view style=" position: absolute;  top: 200rpx; bottom: 0;" scroll-y>
+<view style="padding: 0 5%;" wx:for="{{words}}">
+  <view class="cellSty">
+    <view display="display:flex;flex-direction:column;">
+      <view>
+        <text style="font-size:50rpx;margin-right:12rpx;color:{{item.is_in_wrongwords?'red':'black'}}">{{item.writing}}</text>
+        <image src="{{url}}/pic/voice.png" style="height:55rpx;width:55rpx;position: relative; top: 13rpx;" bindtap="play" data-id="{{index}}"/>
+        <van-icon name="like" bindtap="collection"  data-word_id="{{item.word_id}}" data-index="{{index}}"  wx:if="{{item.is_in_collection}}" style="font-size: 50rpx; color: red;padding: 0 20rpx;top: 3rpx;position: relative;"/>
+          <van-icon name="like-o" bindtap="collection"  data-word_id="{{item.word_id}}" data-index="{{index}}"  wx:else  style="font-size: 50rpx; color: red;padding: 0 20rpx;top: 3rpx;position: relative;"/>          
+      </view>
+      <view style="font-size:28rpx;color:rgb(51,51,51)">{{item.symbol}}</view>
+    </view>
+    <view bindtap="interpretationCli" data-id="{{index}}">
+      <text style="font-size:28rpx;color:rgb(102,102,102);">
+      <block wx:if="{{item.status}}">收起释义</block>
+      <block wx:else>查看释义</block>
+      </text>
+      <image src="{{url}}/pic/open.png" style="width:24rpx;height:24rpx;" />
+    </view>
+  </view>
+  <!--释义部分-->
+  <view hidden="{{!item.status}}">
+    <image src="{{url}}/pic/ex.png" style="width:74rpx;height:33rpx;margin-right:24rpx;display: inline-block; vertical-align: top;"/>
+    <view style="font-size:28rpx;color:rgb(51,51,51); display: inline-block;  width: 56%;">
+      {{item.explanation}}
+    </view>
+  </view>
+  <view style="margin-top:30rpx;background:#eeeeee;width:100%;height:2rpx;"></view>
+</view>
+</scroll-view>
+<view>
+<!-- <view class="bottomBtr" bindtap="practice">错词巩固</view> -->
+<audio src="{{music}}" action="{{audioAction}}"></audio>
+</view>

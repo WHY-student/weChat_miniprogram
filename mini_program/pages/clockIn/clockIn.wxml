@@ -1,0 +1,53 @@
+<!--pages/clockIn/clockIn.wxml-->
+<!--椭圆背景-->
+<view class="full_screen" style="z-index:0">
+  <view class="topc"></view>
+  <!--顶部白色框框部分-->
+  <view class="topBox" style="display:flex;flex-direction:column;">
+    <view style="display:flex;">
+      <image src="{{url}}/pic/icon.png" class="icon"></image>
+      <text class="textAppraise">{{appraise}}</text>
+    </view>
+    <view class="textComment">你刚学了{{num}}个单词，成功迈出第一步</view>
+  </view>
+  <!--日历-->
+  <!--年月切换栏-->
+  <view style="display:flex;justify-content:space-between;margin-top:54rpx">
+    <image src="{{url}}/pic/toL.png" style="width:56rpx;height:68rpx;margin-left:32rpx;" bindtap="toL"></image>
+    <view style="display:flex;flex-direction:column;">
+      <view style="font-size:38rpx;color:rgb(51,51,51);text-align:center;font-weight:700;">{{choosedDay.month}}月</view>
+      <view style="font-size:24rpx;color:rgb(187,187,187);text-align:center">{{choosedDay.year}}</view>
+    </view>
+    <image src="{{url}}/pic/toR.png" style="width:56rpx;height:68rpx;margin-right:32rpx;" bindtap="toR"></image>
+  </view>
+  <!--一周文字-->
+  <view class="weekW">
+    <view wx:for="{{weekW}}" wx:key="index">{{item}}</view>
+  </view>
+  <!--日期部分-->
+  <view wx:for="{{days.length/7}}" wx:for-index="i" wx:key="i">
+    <view wx:for="{{days}}" wx:for-index="j" wx:key="j" wx:for-item="item">
+      <view wx:if="{{j/7==i}}" class="rowCal">
+        <view wx:for="{{7}}" wx:for-index="k" wx:key="k"
+          class="{{days[j+k].thisMonth?'choosedCell':'unchoosedCell'}} cellCal">
+          <view wx:if="{{days[j+k].isSign}}" >
+            <image src="{{url}}/pic/already.png" class="picBac"></image>
+            <view style="margin-top:-71rpx">{{days[j+k].date}}</view>
+          </view>
+          <view wx:else>{{days[j+k].date}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!--文字-->
+  <view style="color:rgb(187,187,187);font-size:28rpx;font-weight:300;text-align:center;margin-top:86rpx;">
+    背单词贵在坚持！每天记得打卡哦！</view>
+  <!--底部按钮-->
+  <view style="display:flex;margin-top:34rpx;margin-bottom:30rpx">
+    <button class="but1" bindtap="toIndex">返回首页</button>
+    <button class="but2" wx:if="{{!today.isSign}}" bindtap="clockin">点我打卡</button>
+    <button wx:else class="but2" bindtap="share">去分享</button>
+  </view>
+</view>
+
+

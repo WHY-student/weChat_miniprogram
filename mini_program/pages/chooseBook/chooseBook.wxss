@@ -1,0 +1,159 @@
+/* pages/chooseBook/chooseBook.wxss */
+.title{
+  margin-top:24rpx;
+  font-size:36rpx;
+  color:rgb(51,51,51);
+  text-align: center;
+  font-weight: 750;
+}
+.choose{
+  width: 64px;
+  margin-top:24rpx ;
+  margin-bottom: 20rpx;
+  text-align: center;
+  font-size: 32rpx;
+}
+.choosed{
+  color:rgb(51,51,51);
+  font-weight: 600;
+}
+.unchoosed{
+  color:rgb(102,102,102);
+  font-weight: 350;
+}
+.nav{
+  height:93rpx;
+  border-bottom: 1rpx solid rgb(238,238,238);
+  justify-content: center;
+  align-items: center;
+}
+.but{
+  width:160rpx;
+  height:72rpx;
+  margin-left: 8rpx;
+  margin-right:8rpx;
+  font-size:28rpx;
+  padding-left: 24rpx;
+  padding-right:24rpx;
+  border-radius: 20px; 
+}
+.cBut{
+  color:white;
+  background:linear-gradient(to left,rgb(95,189,255),rgb(77,156,254));
+}
+.uBut{
+  background-color:rgb(245,245,245);
+  color:rgb(170,170,170);
+}
+.bookPar1{
+  font-size:32rpx;
+  color:rgb(51,51,51);
+  width:508rpx;
+}
+.bookPar2{
+  font-size:24rpx;
+  color:rgb(153,153,153);
+}
+
+.bookPar{
+  margin-top: 10rpx;
+  margin-right: 42rpx;
+  margin-left:24rpx;  
+}
+.p-flex{
+  flex:1;
+  font-size: 30rpx;
+  padding: 15rpx 0;
+}
+.c-title{
+  font-size: 35rpx;
+  font-weight: 600;
+  padding: 20rpx 0;
+}
+.dot{
+  color: rgb(73,137,255);
+  margin: 0 20rpx;
+  font-size: 35rpx;
+}
+
+.chooseBar{
+  width: 41rpx;
+  height: 9rpx;
+  align-self: center;
+}
+
+.navBar{
+  display: flex;
+  margin-left: 24rpx;
+  margin-right: 24rpx;
+  margin-top: 31rpx;
+  margin-bottom: 50rpx;
+}
+
+.column_list{
+  display: flex;
+  flex-direction: column;
+}
+
+.book{
+  display: flex;
+  margin-bottom: 62rpx;
+}
+
+.book_cover{
+  width: 140rpx;
+  height: 196rpx;
+  margin-left: 36rpx;
+  margin-right: 24rpx;
+}
+
+.book_info{
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+}
+
+.select_page{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 10% 5%;
+}
+
+.page_list{
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.select_book_cover_bg{
+  position: absolute;
+  top: 15%;
+  left: 5%;
+   right: 5%;
+   bottom: 10%;
+   z-index: -1;
+   background: white;
+}
+
+.select_book_cover_img{
+  position: relative;
+  transform: translate(-50%, 0);
+  left: 50%;
+  width: 160rpx;
+  height: 232rpx;
+  border-radius: 8pt;
+  border: 1px solid white;
+}
+
+.add_button{
+  flex: 1;
+  width: 60%;
+  position: relative;
+  transform: translate(-50%, 0);
+  left: 50%;
+}

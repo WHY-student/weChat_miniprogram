@@ -1,0 +1,7 @@
+mongoengine==0.23.1
+gevent==21.1.2
+pymongo==3.11.3
+flask_mongoengine==1.0.0
+Flask==2.0.1
+requests==2.25.1
+Flask_Cors==3.0.10

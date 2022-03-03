@@ -1,0 +1,31 @@
+.topBlo{
+  display: flex;
+  padding-left: 32rpx;
+  padding-right: 32rpx;
+  justify-content: space-between;
+  align-items: flex-end;
+  height:100rpx;
+  box-shadow: 0px 10rpx 10rpx rgba(182, 182, 182, 0.31);
+  border-radius: 8px;
+  color:rgb(51,51,51);
+  font-size: 28rpx;
+}
+.cellSty{
+  display:flex;
+  justify-content: space-between;
+  margin-bottom: 20rpx;
+
+}
+.bottomBtr{
+  position:fixed;
+  bottom:32rpx;
+  left:194rpx;
+  background-color: rgb(73,137,255,0.1);
+  font-size: 34rpx;
+  color:rgb(73,137,255);
+  text-align: center;
+  line-height:98rpx;
+  border-Radius: 23px;
+  width:362rpx;
+  height:100rpx;
+}

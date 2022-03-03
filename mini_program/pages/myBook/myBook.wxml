@@ -1,0 +1,66 @@
+<!--pages/myBook/myBook.wxml-->
+
+
+<view class="topBor">
+  <button class="topBtr" bindtap="addBook">+ 添加词书</button>
+</view>
+
+<!--正在学习部分-->
+<!--title-->
+<view style="display:flex;margin-top:40rpx;margin-left:32rpx;height:30rpx">
+  <view style="font-size:37rpx;">正在学习</view>
+  <image src="{{url}}/pic/light.png" style="width:26rpx;height:30rpx;margin-left:13rpx;margin-top:10rpx" />
+</view>
+<!--book-->
+<van-swipe-cell right-width="{{80}}">
+  <view style="display:flex;margin-top:40rpx;">
+    <image src="{{nowBook.pic}}" style="width:160rpx;height:240rpx;margin-left:32rpx;border-radius:8px;" bindtap="toHomepage"/>
+    <view style="display:flex;flex-direction:column;width:487rpx;justify-content:space-between">
+      <view class="bookPar1 bookPar" bindtap="toHomepage">{{nowBook.title}}</view>
+      <view style="display:flex:flex-flex-direction:column">
+        <view class="bookPar2 bookPar">已学习 <text style="color:#4989ff">{{nowBook.learned}}</text>/{{nowBook.vocabulary}}
+        </view>
+        <view style="display:flex;justify-content:space-between;align-items:center">
+          <view class="bookPar2 bookPar" style="width:218rpx;">
+            <progress percent="{{nowBook.learned/nowBook.vocabulary*100}}" color="rgb(73,137,255)" stroke-width="12rpx"
+              border-radius="6rpx" stroke-height="218rpx"></progress>
+          </view>
+          <view class="flashBtr" bindtap="flashN">清空进度</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!--删除按钮-->
+  <view slot="right" class="dePart" bindtap="deleteN">删除</view>
+</van-swipe-cell>
+
+<!--分割线-->
+<view style="margin-top:33rpx;background:#eeeeee;width:100%;height:2rpx;"></view>
+
+<!--其他部分-->
+<!--title-->
+<view style="font-size:37rpx;margin-top:28rpx;margin-left:32rpx;height:30rpx">其他</view>
+
+<!--book-->
+<view style="margin-top:40rpx;margin-bottom:50rpx" wx:for="{{allBooks}}" wx:key="id" >
+  <van-swipe-cell right-width="{{80}}">
+    <view style="display:flex;">
+      <image src="{{item.pic}}" style="width:160rpx;height:240rpx;margin-left:32rpx;border-radius:8px;" bindtap="changeBook" data-id="{{index}}"/>
+      <view style="display:flex;flex-direction:column;width:487rpx;justify-content:space-between">
+        <view class="bookPar1 bookPar" bindtap="changeBook" data-id="{{index}}">{{item.title}}</view>
+        <view style="display:flex:flex-flex-direction:column">
+          <view class="bookPar2 bookPar">已学习 <text style="color:#4989ff">{{item.learned}}</text>/{{item.vocabulary}}
+          </view>
+          <view style="display:flex;align-items:center;justify-content:space-between">
+            <view class="bookPar" style="width:218rpx;">
+              <progress percent="{{item.learned/nowBook.vocabulary*100}}" color="rgb(73,137,255)" stroke-width="12rpx"
+                border-radius="6rpx" stroke-height="218rpx"></progress>
+            </view>
+            <view class="flashBtr" bindtap="flashO" data-id="{{index}}">清空进度</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view slot="right" class="dePart" bindtap="deleteO" data-id="{{index}}">删除</view>
+  </van-swipe-cell>
+</view>

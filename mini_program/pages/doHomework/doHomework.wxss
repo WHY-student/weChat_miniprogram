@@ -1,0 +1,136 @@
+/* pages/wordtest/wordtest.wxss */
+page{
+  background: -webkit-linear-gradient(right,#4989ff,rgb(88,161,255));
+}
+.word{
+	font-Family: "PingFangSC-Semibold";
+	font-Size: 60rpx;
+  color: "#333333";
+  /* margin-top:90rpx; */
+  text-align: center;
+}
+.word_sym{
+	font-Family: "PingFangSC-Regular";
+	font-Size: 28rpx;
+  color: rgb(51,51,51);
+  margin-top:4rpx;
+  text-align: center;
+  margin-bottom: 38rpx;
+  display: inline-block;
+}
+.answer_usual{
+  align-self: center;
+  text-align: left;
+  padding-left: 58rpx;
+  padding-top: 13rpx;
+  padding-bottom: 14rpx;
+  margin-top:10%;
+  margin-right: 52rpx;
+  margin-left: 52rpx;
+  width: 582rpx;
+	height: 100rpx;
+	border-Radius: 25px;
+	background-Color: #ffffff;
+	border-Style: solid;
+	border-Width: 2rpx;
+  border-Color: rgb(221,221,221);
+  font-size: 32rpx;
+}
+
+.bac{
+  margin-top: 40rpx;
+  margin-bottom: 59rpx;
+  margin-left: 32rpx;
+  margin-right: 32rpx;
+  width: 686rpx;
+	height: 1067rpx;
+	border-Radius: 30rpx;
+	background:white;
+
+}
+.doing .van-progress{
+  background: rgb(139, 183, 255) !important;
+}
+.doing .van-progress__portion{
+  background: white  !important;
+}
+.afterDoing .van-progress{
+  background: rgb(238, 238, 238) !important;
+}
+.afterDoing .van-progress__portion{
+  background: rgb(76, 141, 255)  !important;
+}
+.word_card{
+  border-Radius: 30rpx;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  flex: 16;  
+  padding: 15% 5%;
+}
+.progress_bar{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 5%;
+  display: flex;
+  flex-direction: column;
+}
+.selection .van-button{
+  border-color:rgb(221,221,221) !important;
+  border-width: 1px !important;
+}
+.word_text{
+  height: 100%;
+  width: 80%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap; 
+  font-size: 30rpx; 
+  display: inline-block;
+}
+.logo{
+  width: 45rpx;
+  height: 30rpx;
+  float: right;
+  position: relative;
+  top: 35%;  
+}
+.tag{
+  margin-top:1%;
+  width: 64rpx;
+	height: 45rpx;
+	font-Family: "PingFangSC-Medium";
+	font-Size: 32rpx;
+	color: rgb(153,153,153);
+}
+.But1{
+  width:271rpx;
+  height:90rpx;
+  font-size:34rpx;
+  border-Radius: 25px;
+  background: rgb(236, 243, 255);
+  color:rgb(73,137,255);  
+}
+.But2{
+  width:271rpx;
+  height:90rpx;
+  font-size:34rpx;
+  border-Radius: 25px;
+  width:383rpx;  
+  background-color: #4989ff;color:white  
+}
+.mean{
+  margin-top:1%;
+  font-size:28rpx;
+  color:rgb(51,51,51);
+}
+.heart{
+  position: absolute;
+  top: 145rpx;  
+  left: 10%; 
+  font-size: 50rpx; 
+  color: red;  
+}
